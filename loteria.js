@@ -1,32 +1,35 @@
 var cartas = [];
-function aleatorio(min,max){
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+var contador = 0;
+function AleatorioInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
 
-function cargarArreglo(){
-    console.log("Hola");
-    for(var i = 2 ; i = 54; i++){
-        cartas.push("loteria_" + i + ".jpg");
+function cargarArreglo()
+{
+    for(var x = 2;x<=54;x++)
+    {
+        cartas.push("loteria_"+x+".jpg");
     }
 }
 
-function sacar(){
-    var t = cartas.length;
-    var p = aleatorio(0,t-1);
-    if (t==0)
+function sacar()
+{
+ var t = cartas.length;
+ var p = AleatorioInteger(0,t-1);
+ 
+    if (t ==0)
     {
-        alert("se acabo el juego. Voy a reiniciar...");
+        alert("fin del juego");
         cartas = [];
-        cargaarreglos();
-        document.getElementById("carta").src = "loteria_1.jpg";
+        cargarArreglo()
+        document.getElementById("carta").src ="loteria_1.jpg";
     }
     else
     {
-        document.getElementById("carta").src = cartas[p];
-        cartas.splice(p,1);
-    }
+
+    document.getElementById("carta").src = cartas[p];
+    contador++;
+   cartas.splice(p,1)
+   console.log("tam=" +t);
 }
-
-
-//var w = aleatorio(1,1000);
-//console.log(w);
+}
